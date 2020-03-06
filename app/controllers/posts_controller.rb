@@ -5,8 +5,8 @@ class PostsController < ApplicationController
 			flash[:success] = "Please log in or signup first to write your own post on Blog app"
 			redirect_to root_url
 		else
-		  @post = current_user.posts.build(posts_params)
-		  if @post.save
+			  @post = current_user.posts.build(posts_params)
+			  if @post.save
 			  flash.now[:success] = "Your blog has been created and posted to your profile page....."
 			  redirect_to @current_user
 		  else
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		@post = current_user.posts.find(params[:id])
 		@post.delete
 		flash[:success] = "Your Blog has been deleted successfully."
 		redirect_to @current_user

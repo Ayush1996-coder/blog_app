@@ -1,0 +1,10 @@
+<li id="comment-<%= comment.id %>">
+  <span class ="comment"><%= commen.name%></span>
+  <span class ="comment"><%= commen.commnet%></span>
+  <span class ="timestamp">
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+    <% if current_user?(commnet.user) %>
+    <%= link_to 'Delete', [comment.post, comment], method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </span>
+</li>

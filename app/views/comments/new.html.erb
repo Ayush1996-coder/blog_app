@@ -1,0 +1,10 @@
+<% provide(:title, "Comment") %>
+<h1>Add comment</h1>
+<%= form_for(@comment) do |f| %>
+  <div class="field">
+  	<%= f.label :name %>
+    <%= f.text_field :name %>
+  	<%= f.label :comment %>
+    <%= f.text_area :comment, placeholder: "Add comment..." %>
+  </div><%= f.submit "Comment", class: "btn btn-primary" %>
+<% end %>
