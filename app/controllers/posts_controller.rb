@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	def create
 		if current_user.nil?
 			flash[:success] = "Please log in or signup first to write your own post on Blog app"
-			redirect_to root_url
+			redirect_to new_user_session_path
 		else
 		  @post = current_user.posts.build(posts_params)
 		  if @post.save
