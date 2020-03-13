@@ -8,9 +8,9 @@ class PostsController < ApplicationController
 		  @post = current_user.posts.build(posts_params)
 		  if @post.save
 			  flash.now[:success] = "Your blog has been created and posted to your profile page....."
-			  redirect_to @current_user
+			  redirect_to current_user
 		  else
-			  redirect_to @current_user
+			  redirect_to current_user
 			end
 		end
 	end
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 		@post = current_user.posts.find(params[:id])
 		@post.delete
 		flash[:success] = "Your Blog has been deleted successfully."
-		redirect_to @current_user
+		redirect_to current_user
 	end
 
 	def new
