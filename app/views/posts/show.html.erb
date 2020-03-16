@@ -1,0 +1,12 @@
+<h3></a> Posts (<%= @user.posts.count %>)</h3>
+<ol class="posts">
+  <%= render @posts %>
+      <br>
+    <div class="col-md-8">        
+      <h2> Comments </h2>
+      <%= render 'comments/comment' %>
+      <h3>Add a Comment: </h3>
+      <%= render 'comments/form'%>       
+    </div>
+    <br>
+</ol>

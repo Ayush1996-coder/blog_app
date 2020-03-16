@@ -13,10 +13,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.posts.any? %>
-      <h3></a> Posts (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
+  <%= link_to "Show Post", post_path , class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>
