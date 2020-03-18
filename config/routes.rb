@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'sessions#new'
-  get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
-  post '/login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  get 'static_pages/home'
+  devise_for :users, :path => '', path_names: { sign_in: "login", sign_out: "logout", sign_up: "registration"}
+  root 'static_pages#home'
   resources :users
   resources :posts do
   	resources :comments
