@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable, :lockable
   has_many :posts, dependent: :destroy
 	before_save {self.email = email.downcase}
 	validates :name, presence: true, length: {maximum: 50}
@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: {maximum: 6}
   validates :password_confirmation, presence: true, length: {maximum: 6}
+
+  # def send_devise_notification(notification, *args)
+  #   devise_mailer.send(notification, self, *args).deliver_later
+  # end
 end
