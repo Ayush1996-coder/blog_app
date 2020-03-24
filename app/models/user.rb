@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {maximum: 6}
   validates :password_confirmation, presence: true, length: {maximum: 6}
 
-  # def send_devise_notification(notification, *args)
-  #   devise_mailer.send(notification, self, *args).deliver_later
-  # end
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
 end
