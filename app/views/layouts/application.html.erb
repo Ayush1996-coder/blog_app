@@ -15,7 +15,7 @@
         <%= link_to "Blog", '#', id: "logo" %>
           <nav>
             <ul class="nav navbar-nav navbar-right">
-               <% if !current_user.nil? %>
+               <% if !current_user.nil? %> 
                 <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
               <% end %>
             </ul>

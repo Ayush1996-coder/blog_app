@@ -23,15 +23,20 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
+		@post = Post.new(params[:post])
 	end
 
 	def show
-		@post = current_user.posts.find(params[:id])
-		@user = User.find(params[:id])
-		@posts = @user.posts
-		@comment = Comment.new
-		@comments = @post.comments
+		if current_user.nil?
+			flash[:success] = "Please log in or signup first to see others post on Blog app"
+			redirect_to new_user_session_path
+	  else
+		  @post = current_user.posts.find_by_id(params[:id])
+		  @user = User.find(params[:id])
+		  @posts = @user.posts
+		  @comment = Comment.new
+		  @comments = @post.comments
+	  end
 	end
 
 	private

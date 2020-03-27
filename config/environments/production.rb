@@ -111,7 +111,7 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'sitepoint-devise.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'blog-app-2019 .herokuapp.com' }
 
   ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
